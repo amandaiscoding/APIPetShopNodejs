@@ -5,14 +5,14 @@ const Cliente = conexao.define('cliente', {
     idCliente: {
         primaryKey: true,
         autoIncrement: true,
-        type: DataTypes.INT
+        type: DataTypes.INTEGER
     },
     nome: {
         type: DataTypes.STRING,
         allowNull: false
     },
     telefone: {
-        type: DataTypes.INT,
+        type: DataTypes.INTEGER,
         unique: true,
     }
 }, {

@@ -32,7 +32,7 @@ class ControllerCachorro {
         }
     }
 
-    async Create(req, res) {
+    async Add(req, res) {
         try {
             const result = await servico.Create(req.body.cachorro);
             res.status(201).json({
