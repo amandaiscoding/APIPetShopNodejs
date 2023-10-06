@@ -1,17 +1,17 @@
-const ServicoCachorro = require('../services/cachorro.js');
-const servico = new ServicoCachorro();
+const ServicoCachorro = require('../services/cachorro.js')
+const servico = new ServicoCachorro()
 
 class ControllerCachorro {
 
     async PegarUm(req, res) {
         try {
-            console.log(req.params.idCachorro);
-            const result = await servico.PegarUm(req.params.idCachorro);
+            console.log(req.params.idCachorro)
+            const result = await servico.PegarUm(req.params.idCachorro)
             res.status(200).json({
                 cachorro: result     
             })
         } catch(error) {
-            console.log(error);
+            console.log(error)
             res.status(500).json({
                 message: error.message
             })
@@ -20,12 +20,12 @@ class ControllerCachorro {
 
     async PegarTodos(_, res) {
         try {
-            const result = await servico.PegarTodos();
+            const result = await servico.PegarTodos()
             res.status(200).json({
                 cachorro: result
             })
         } catch(error) {
-            console.log(error);
+            console.log(error)
             res.status(500).json({
                 message: "Erro ao buscar informações."
             })
@@ -34,12 +34,12 @@ class ControllerCachorro {
 
     async Add(req, res) {
         try {
-            const result = await servico.Add(req.body.cachorro);
+            const result = await servico.Add(req.body.cachorro)
             res.status(201).json({
                 cachorro: result
             })
         } catch(error) {
-            console.log(error);
+            console.log(error)
             res.status(500).json({
                 message: error.message
             })
@@ -48,12 +48,13 @@ class ControllerCachorro {
 
     async Update(req, res) {
         try {
-            const result = await servico.Update(req.params.idCachorro, req.body.cachorro);
+            const result = await servico.Update(req.params.idCachorro, req.body.cachorro)
             res.status(200).json({
+                cachorro: result,
                 message: "Cadastro atualizado com sucesso."
             })
         } catch(error) {
-            console.log(error);
+            console.log(error)
             res.status(500).json({
                 message: error.message
             })
@@ -62,12 +63,12 @@ class ControllerCachorro {
 
     async Delete(req, res) {
         try {
-            await servico.Delete(req.params.idCachorro);
+            await servico.Delete(req.params.idCachorro)
             res.status(200).json({
                 message: "Cadastro deletado com sucesso."
             })
         } catch(error) {
-            console.log(error);
+            console.log(error)
             res.status(500).json({
                 message: "Erro ao deletar cadastro de cachorro."
             })
