@@ -1,17 +1,17 @@
 const Cliente = require('../models/cliente.js')
-const Cachorro = require('../models/cachorro.js');
+const Cachorro = require('../models/cachorro.js')
 
 class RepositorioCliente {
 
-    async PegarUm(idCliente, transaction) {
+    async PegarUm(idCliente) {
         return Cliente.findOne({
             where: { idCliente },
-            transaction
-        });
+            include: [Cachorro]
+        })
     }
     
     async PegarTodos() {
-        return Cliente.findAll();
+        return Cliente.findAll()
     }
 
     async Add(cliente, transaction) {
@@ -35,7 +35,7 @@ class RepositorioCliente {
     async Delete(idCliente) {
         return Cliente.destroy({
             where: { idCliente }
-        });
+        })
     }
 
 }
