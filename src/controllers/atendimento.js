@@ -45,7 +45,7 @@ class ControllerAtendimento {
             })
         }
     }
-
+    
     async Update(req, res) {
         try {
             const result = await servico.Update(req.params.idAtendimento, req.body.atendimento)
