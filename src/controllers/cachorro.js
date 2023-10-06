@@ -22,7 +22,7 @@ class ControllerCachorro {
         try {
             const result = await servico.PegarTodos();
             res.status(200).json({
-                cachorros: result
+                cachorro: result
             })
         } catch(error) {
             console.log(error);
@@ -34,7 +34,7 @@ class ControllerCachorro {
 
     async Add(req, res) {
         try {
-            const result = await servico.Create(req.body.cachorro);
+            const result = await servico.Add(req.body.cachorro);
             res.status(201).json({
                 cachorro: result
             })

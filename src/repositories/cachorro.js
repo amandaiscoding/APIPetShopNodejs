@@ -12,7 +12,6 @@ class RepositorioCachorro{
         return Cachorro.findAll();
     }
 
-
     async Add(cachorro) {
         console.log(cachorro)
         const result = await Cachorro.create(cachorro);

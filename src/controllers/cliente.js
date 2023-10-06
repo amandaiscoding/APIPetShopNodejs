@@ -21,7 +21,7 @@ class ControllerCliente {
         try {
             const result = await servico.PegarTodos()
             res.status(200).json({
-                clientes: result
+                cliente: result
             })
         } catch (error) {
             console.log(error)

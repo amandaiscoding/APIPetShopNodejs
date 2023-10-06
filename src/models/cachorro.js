@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 const conexao = require('../database.js');
 const Cliente = require('./cliente.js');
 
-const Cachorro = conexao.define('cachorro', {
+const Cachorro = conexao.define('cachorros', {
     idCachorro: {
         primaryKey: true,
         autoIncrement: true,

@@ -15,26 +15,26 @@ class ServicoCachorros {
         return true;
     }
 
-    async ConsultarUm(idCachorro) {
+    async PegarUm(idCachorro) {
         if(isNaN(idCachorro)) {
             throw new Error("Favor informar o ID apenas com número.");
         } 
-        const resultadoId = repositorio.ConsultarUm(idCachorro)
+        const resultadoId = repositorio.PegarUm(idCachorro)
         console.log(resultadoId)
         if(resultadoId == null) {
-            throw new Error("Esse ID não foi encontrado");
+            throw new Error("Esse ID não foi encontrado.");
         } else {
             return resultadoId;
         }
     }
 
-    async ConsultarTodos() {
-        return repositorio.ConsultarTodos();
+    async PegarTodos() {
+        return repositorio.PegarTodos();
     }
 
-    async Create(cachorro) {
+    async Add(cachorro) {
         this.VerificarCachorro(cachorro);
-        return repositorio.Create(cachorro);
+        return repositorio.Add(cachorro);
     }
 
     async Update(idCachorro, cachorro) {
