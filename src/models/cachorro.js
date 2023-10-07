@@ -13,7 +13,12 @@ const Cachorro = conexao.define('cachorros', {
         allowNull: false
     },
     idCliente: {
+        field: 'idCliente',
         type: DataTypes.STRING,
+        references: {
+            model: Cliente,
+            key: 'idCliente'
+        }
     },
     raca: {
         type: DataTypes.STRING,
