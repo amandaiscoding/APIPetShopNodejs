@@ -23,17 +23,14 @@ const Atendimento = conexao.define('atendimentos', {
         type: DataTypes.BOOLEAN,
         allowNull: false,
     },
-    idAtendimento: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    },
-    idCliente: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    },
     idCachorro: {
+        field: 'idCachorro',
         type: DataTypes.INTEGER,
         allowNull: false,
+        references: {
+            model: Cachorro,
+            key: 'idCachorro'
+        }
     }
 }, {
     createdAt: false,
