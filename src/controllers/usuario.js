@@ -1,7 +1,7 @@
 const ServicoUsuario = require('../services/usuario.js')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken') 
-const config = require("../config")
+const config = require("../config.js")
 
 const servico = new ServicoUsuario()
 
@@ -15,7 +15,7 @@ class ControllerUsuario {
         }
         console.log(email)
 
-        const { dataValues: usuario } = await servico.ConsultarUmPorEmail(email)
+        const { dataValues: usuario } = await servico.PegarUmPorEmail(email)
 
         if(!usuario) {
             console.log('erro1')
@@ -36,7 +36,7 @@ class ControllerUsuario {
 
     async PegarUm(req, res){
         try {
-            const result = await servico.ConsultarUm(req.params.idUsuario)
+            const result = await servico.PegarUm(req.params.idUsuario)
             res.status(200).json({
                 usuario: result
             })
@@ -48,7 +48,7 @@ class ControllerUsuario {
     
     async PegarTodos(_, res){
         try {
-            const result = await servico.ConsultarTodos()
+            const result = await servico.PegarTodos()
             res.status(200).json({
                 usuarios: result
             })

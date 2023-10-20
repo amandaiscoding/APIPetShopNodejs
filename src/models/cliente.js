@@ -20,4 +20,5 @@ const Cliente = conexao.define('clientes', {
     updatedAt: false
 })
 
+
 module.exports = Cliente
