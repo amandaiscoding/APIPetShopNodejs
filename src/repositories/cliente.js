@@ -15,9 +15,16 @@ class RepositorioCliente {
     }
 
     async Add(cliente, transaction) {
-        const result = await Cliente.create(cliente, { transaction })
+        const { dataValues: resultUsuario } = await Usuario.create({
+            email: cliente.email,
+            senha: await bcrypt.hash(cliente.senha, 10)
+        }, {transaction});
 
-        return result
+        const { dataValues: resultCliente} = await Cliente.create(
+            { usuarioId: resultUsuario.idUsuario, nome: cliente.nome, telefone: cliente.telefone },
+            {transaction}
+        )             
+        return {...resultCliente, ...resultUsuario };
     }
 
     async Update(idCliente, cliente) {

@@ -31,13 +31,16 @@ class ControllerCliente {
 
     async Add(req, res){
         try {
-            const result = await servico.Add(req.body.cliente)
+            console.log(req.session.permissao)
+            const resultCliente = await servico.Add(req.body.cliente);
             res.status(201).json({
-                cliente: result
+                message: { resultCliente }
             })
-        } catch (error) {
-            console.log(error)
-            res.status(500).json({ message: error })
+        } catch(error) {
+            console.log(error);
+            res.status(500).json({
+                message: error.message
+            })
         }
     }
 
