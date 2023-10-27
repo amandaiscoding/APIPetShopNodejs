@@ -1,6 +1,5 @@
-const { DataTypes } = require('sequelize');
-const conexao = require('../database.js');
-const Cliente = require('./cliente.js');
+const { DataTypes } = require('sequelize')
+const conexao = require('../database.js')
 
 const Usuario = conexao.define('usuarios', {
 
@@ -26,12 +25,6 @@ const Usuario = conexao.define('usuarios', {
 }, {
     createdAt: false,
     updatedAt: false
-});
-
-// 1 usuário para 1 cliente
-Cliente.belongsTo(Usuario, { 
-    constraint: true, 
-    foreignKey: 'idUsuario'
 })
 
 module.exports = Usuario

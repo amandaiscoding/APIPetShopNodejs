@@ -5,5 +5,6 @@ module.exports = {
         database: 'petshop',
         host: 'localhost',
         dialect: 'mysql'
-    }
+    },
+    secret: 'batata'
 };
