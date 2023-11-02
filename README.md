@@ -18,6 +18,7 @@ Relações:
 Um usuário pode ser ou não um cliente. Um cliente tem um usuário;
 Um cliente pode ter nenhum ou vários cachorros. Um cachorro é de um cliente;
 Um atendimento é de um cachorro. Um cachorro pode ter nenhum ou vários atendimentos;
+
 Observações:
 Usuário permissão 0 = Administrador, 1 = Cliente, 2 = funcionário(atendente)
 
